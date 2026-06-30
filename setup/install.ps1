@@ -489,3 +489,5 @@ Write-Host "   1. Edit .github\workspace-registry.md — add your projects"
 Write-Host "   2. Open the workspace in IntelliJ"
 Write-Host "   3. Use GitHub Copilot Chat — type /discover <project> to initialise a project"
 Write-Host ""
+
+# --- Script end-----------------------------------------
