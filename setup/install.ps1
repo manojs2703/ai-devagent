@@ -37,7 +37,7 @@ param(
 )
 
 # ── Private plugin repo — fill in before sharing ─────────────────────────────
-$REPO_URL = "https://github.com/YOUR_ORG/ai-devagent"
+$REPO_URL = "https://github.com/manojs2703/ai-devagent.git"
 # ─────────────────────────────────────────────────────────────────────────────
 
 $PluginRoot    = "$env:USERPROFILE\.ai-devagent"
