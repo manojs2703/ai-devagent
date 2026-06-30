@@ -1,0 +1,38 @@
+name: ai-devagent
+version: 1.0.0
+description: >
+  AI DevAgent — a structured agent framework for AI-assisted software development.
+  Provides a full analyse → plan → implement → test → review → commit workflow
+  with a two-layer memory system (generic knowledge + project-specific overrides).
+  Optimised for Java/Maven multi-module projects but adaptable to any stack.
+
+author:
+  name: Manoj Sathyanarayana
+  email: Manoj.Sathyanarayana@msg-global.com
+
+license: MIT
+
+type: agent
+
+entry: CLAUDE.md
+
+files:
+  - CLAUDE.md
+  - ai-devagent/
+
+keywords:
+  - agent
+  - java
+  - maven
+  - workflow
+  - memory
+  - code-review
+
+dependencies:
+  apm: []
+  mcp: []
+
+scripts:
+  install: pwsh -File install.ps1
+
+# IDE plugin installation: configured separately per IDE (VS Code, JetBrains, etc.)
