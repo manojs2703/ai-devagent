@@ -1,0 +1,11 @@
+name: ai-devagent
+version: 1.0.0
+description: >
+  AI DevAgent — a structured agent framework for AI-assisted software development.
+  Provides a full analyse → plan → implement → test → review → commit workflow
+  with a two-layer memory system (generic knowledge + project-specific overrides).
+  Optimised for Java/Maven multi-module projects but adaptable to any stack.
+
+dependencies:
+  apm: []
+  mcp: []
