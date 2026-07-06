@@ -22,6 +22,12 @@
 .PARAMETER SkipPluginInstall
     Skip Phase 1 (plugin already installed). Only re-generate workspace files.
 
+.PARAMETER AtlassianToolPrefix
+    The MCP tool name prefix your Copilot setup uses for its Atlassian (Jira/Confluence)
+    server, e.g. if your tools are named "mcp_atlassian-vw_read_jira_issue" the prefix is
+    "atlassian-vw". Defaults to "atlassian". This is workspace-specific — set it once per
+    workspace at install time rather than hardcoding it in the plugin.
+
 .EXAMPLE
     # First-time full install in current directory
     .\install.ps1
@@ -33,11 +39,16 @@
 .EXAMPLE
     # Already have the plugin, just wire up a new workspace
     .\install.ps1 -WorkspaceRoot "C:\Dev\AnotherProject" -SkipPluginInstall
+
+.EXAMPLE
+    # Workspace whose Atlassian MCP tools are named "mcp_atlassian-vw_*"
+    .\install.ps1 -AtlassianToolPrefix "atlassian-vw"
 #>
 
 param(
-    [string]$WorkspaceRoot    = (Get-Location).Path,
-    [switch]$SkipPluginInstall
+    [string]$WorkspaceRoot         = (Get-Location).Path,
+    [switch]$SkipPluginInstall,
+    [string]$AtlassianToolPrefix   = "atlassian"
 )
 
 $REPO_URL = "https://github.com/manojs2703/ai-devagent.git"
@@ -59,7 +70,8 @@ function Set-FileContent($path, $content) {
 }
 
 function Expand-Template($template) {
-    $template -replace '__PLUGIN__', $PluginPath
+    (($template -replace '__PLUGIN__', $PluginPath) -replace 'atlassian-vw', $AtlassianToolPrefix) `
+        -replace '__ATLASSIAN__', $AtlassianToolPrefix
 }
 
 function Get-ZoneContent($text, $zoneName) {
@@ -192,7 +204,11 @@ See __PLUGIN__\memory\sync-protocol.md for the translation rules. -->
 Set-ZonedDocument (Join-Path $GithubDir "copilot-instructions.md") $copilotHeader $pluginRoleFlat `
     "PROJECT_RULES" $projectRulesDefault "SYNCED_FROM_CLAUDE" $syncedFromClaudeDefault
 
-Set-FileContent (Join-Path $GithubDir "workspace-registry.md") @'
+$workspaceRegistryPath = Join-Path $GithubDir "workspace-registry.md"
+if (Test-Path $workspaceRegistryPath) {
+    Write-Warn "workspace-registry.md already exists — leaving your edits untouched"
+} else {
+    Set-FileContent $workspaceRegistryPath (Expand-Template @'
 # Workspace Registry
 
 **Purpose**: Lists all projects managed by the AI DevAgent in this workspace.
@@ -222,12 +238,33 @@ Set-FileContent (Join-Path $GithubDir "workspace-registry.md") @'
 
 ---
 
+## Atlassian Integration (Jira / Confluence)
+
+This is workspace-specific configuration — it lives here, not in the plugin, so the plugin
+stays portable across workspaces with different Atlassian setups.
+
+**MCP tool prefix**: `__ATLASSIAN__` (set at install time via `-AtlassianToolPrefix`;
+re-run `setup/install.ps1 -AtlassianToolPrefix "..." -SkipPluginInstall` to change it)
+
+| Project ID | Jira Project Key | Confluence Space Key |
+|-----------|-------------------|----------------------|
+| MyProject | TBD               | TBD                  |
+
+**First analysis per project**: `/analyse` discovers each project's actual Jira field usage
+and Confluence page structure on its first run and caches it in
+`{project}/.github/ai-memory/project/p06-atlassian-structure.md` — never in the plugin.
+Subsequent runs read that cache instead of rediscovering it.
+
+---
+
 ## Adding a Project
 
 1. Add a row to the Project Index table
-2. Add routing keywords to Routing Rules
-3. Run `/discover {project}` to initialize AI memory
-'@
+2. Add its Jira project key / Confluence space key to the Atlassian Integration table
+3. Add routing keywords to Routing Rules
+4. Run `/discover {project}` to initialize AI memory
+'@)
+}
 
 $prompts = @{
     "analyse.prompt.md" = @{
@@ -241,6 +278,10 @@ tools:
   - create_file
   - mcp_atlassian-vw_read_jira_issue
   - mcp_atlassian-vw_search_jira_issues
+  - mcp_atlassian-vw_get_jira_issue_comments
+  - mcp_atlassian-vw_get_jira_issue_attachments
+  - mcp_atlassian-vw_search_confluence_pages
+  - mcp_atlassian-vw_read_confluence_page
 '@
         body = @'
 # /analyse — Delegate to AI DevAgent
@@ -362,6 +403,10 @@ tools:
   - get_errors
   - mcp_atlassian-vw_read_jira_issue
   - mcp_atlassian-vw_search_jira_issues
+  - mcp_atlassian-vw_get_jira_issue_comments
+  - mcp_atlassian-vw_get_jira_issue_attachments
+  - mcp_atlassian-vw_search_confluence_pages
+  - mcp_atlassian-vw_read_confluence_page
 '@
         body = @'
 # /doall — Delegate to AI DevAgent
@@ -446,8 +491,8 @@ tools:
   - run_in_terminal
   - mcp_atlassian-vw_list_jira_projects
   - mcp_atlassian-vw_search_jira_issues
-  - mcp_atlassian-vw-_search_confluence_pages
-  - mcp_atlassian-vw-_read_confluence_page
+  - mcp_atlassian-vw_search_confluence_pages
+  - mcp_atlassian-vw_read_confluence_page
 '@
         body = @'
 # /discover — Delegate to AI DevAgent
@@ -461,7 +506,7 @@ Do not summarise or skip steps. Follow the full discovery workflow.
 
 foreach ($filename in $prompts.Keys) {
     $entry   = $prompts[$filename]
-    $content = "---`n$($entry.frontmatter)---`n`n$(Expand-Template $entry.body)`n"
+    $content = "---`n$(Expand-Template $entry.frontmatter)`n---`n`n$(Expand-Template $entry.body)`n"
     Set-FileContent (Join-Path $PromptsDir $filename) $content
 }
 
@@ -473,9 +518,10 @@ Write-Host ""
 Write-Host " Plugin location  : $PluginPath" -ForegroundColor White
 Write-Host " Workspace root   : $WorkspaceRoot\CLAUDE.md (Claude Code)" -ForegroundColor White
 Write-Host " Workspace files  : $GithubDir (GitHub Copilot)" -ForegroundColor White
+Write-Host " Atlassian prefix : mcp_${AtlassianToolPrefix}_* (change with -AtlassianToolPrefix)" -ForegroundColor White
 Write-Host ""
 Write-Host " Next steps:" -ForegroundColor Yellow
-Write-Host "   1. Edit .github\workspace-registry.md — add your projects"
+Write-Host "   1. Edit .github\workspace-registry.md — add your projects and their Jira/Confluence keys"
 Write-Host "   2. Open the workspace in IntelliJ"
 Write-Host "   3. Use GitHub Copilot Chat — type /discover <project> to initialise a project"
 Write-Host ""

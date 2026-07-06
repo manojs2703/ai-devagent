@@ -10,7 +10,7 @@
 |-------------------|----------|
 | Generic engineering principle (any project) | `ai-devagent/knowledge/` |
 | Project-specific convention or pattern | `.github/ai-memory/project/` |
-| Both abstract + concrete EPL implementation | Both locations |
+| Both abstract + concrete project implementation | Both locations |
 | One-time story analysis | `{project}/.github/story-analyses/{name}.md` |
 
 For classification decisions: → `ai-devagent/memory/classification-rules.md`
@@ -71,6 +71,12 @@ For classification decisions: → `ai-devagent/memory/classification-rules.md`
 **`p03-domain-concepts.md`** — update when:
 - New domain term introduced
 - New framework component used for first time
+
+**`p06-atlassian-structure.md`** — update when:
+- First `/analyse` run for a project (created, not just updated — see `prompts/analyse.md`)
+- The Jira field used for acceptance criteria changes
+- A new Confluence space or parent page becomes the norm for linked docs
+- Any other discovered Jira/Confluence convention turns out to be stale or wrong
 
 ---
 

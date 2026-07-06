@@ -53,6 +53,7 @@ New knowledge to store?
 | "`@UnitTest` annotation from project library" | Project Memory | Project-specific annotation |
 | "Server-side authorization enforcement" | AI DevAgent | Universal security principle |
 | "`@BeppoCheck` AOP annotation" | Project Memory | Project framework |
+| "Acceptance criteria live in a custom Jira field, not the description" | Project Memory | Project's Jira/Confluence structure — `p06-atlassian-structure.md` |
 
 ---
 

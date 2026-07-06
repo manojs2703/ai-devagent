@@ -43,9 +43,18 @@ This does two things automatically:
 > .\install.ps1 -SkipPluginInstall
 > ```
 
+> If your Copilot setup's Atlassian (Jira/Confluence) MCP tools use a different name prefix than
+> the default `atlassian` (e.g. your tools are named `mcp_atlassian-vw_read_jira_issue`, so the
+> prefix is `atlassian-vw`):
+> ```powershell
+> .\install.ps1 -AtlassianToolPrefix "atlassian-vw"
+> ```
+> This is workspace-specific and safe to change later by re-running with `-SkipPluginInstall`.
+
 ### Step 2 — Configure your workspace
 
-Edit the generated `.github\workspace-registry.md` and add your projects:
+Edit the generated `.github\workspace-registry.md` and add your projects, plus each project's
+Jira project key and Confluence space key in the Atlassian Integration section:
 
 ```markdown
 ## Workspace Root
@@ -55,7 +64,17 @@ Edit the generated `.github\workspace-registry.md` and add your projects:
 | # | Project ID | Root Path | Type |
 |---|-----------|-----------|------|
 | 1 | MyProject | `MyProject/` | Maven |
+
+## Atlassian Integration (Jira / Confluence)
+| Project ID | Jira Project Key | Confluence Space Key |
+|-----------|-------------------|----------------------|
+| MyProject | ABC               | ABCSPACE              |
 ```
+
+The first time you run `/analyse` on a project, it discovers that project's actual Jira field
+usage and Confluence page structure and caches it in
+`{project}/.github/ai-memory/project/p06-atlassian-structure.md` — never in the plugin. Later
+runs read that cache instead of rediscovering it every time.
 
 ### Step 3 — Install the GitHub Copilot plugin in IntelliJ
 

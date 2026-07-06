@@ -216,6 +216,9 @@ Create the following files:
     └── maintenance-rules.md  ← When/how to update this memory
 ```
 
+**Not created here**: `p06-atlassian-structure.md` is created on-demand by `/analyse` on its
+first run for this project, not by discovery — see `prompts/analyse.md` Step 2c.
+
 ### Phase 6 — Validation
 
 Verify the memory is sufficient by answering these questions from memory alone:
