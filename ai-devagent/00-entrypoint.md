@@ -14,7 +14,7 @@ Every session MUST follow this sequence — no exceptions:
 
 ```
 Step 1 → Read this file (you are here)
-Step 2 → Read ai-devagent/workspace-registry.md      (project index — identify target project)
+Step 2 → Read .github/workspace-registry.md          (project index — identify target project)
 Step 3 → Read {project}/.github/ai-memory/00-index.md          (project memory index)
 Step 4 → Read {project}/.github/ai-memory/project/p07-active-context.md  (current state)
 Step 5 → Load relevant project memory files           (based on the task)
@@ -22,7 +22,7 @@ Step 6 → Load ai-devagent knowledge files             (only if project memory 
 Step 7 → Read source code                             (last resort — targeted reads only)
 ```
 
-**If no ai-memory exists for the target project**: Run `ai-devagent/workflows/project-discovery.md` before step 3.
+**If no ai-memory exists for the target project**: Run the Project Discovery section of `ai-devagent/workflows/session-and-memory.md` before step 3.
 
 **Never skip to source code. Never scan the repository broadly. Follow the sequence.**
 
@@ -33,7 +33,7 @@ Step 7 → Read source code                             (last resort — targete
 ```
 ┌─────────────────────────────────────────────────┐
 │  Tier 0 — Workspace Registry                    │  ← Load FIRST — identifies target project
-│  ai-devagent/workspace-registry.md              │
+│  .github/workspace-registry.md                  │
 ├─────────────────────────────────────────────────┤
 │  Tier 1 — Active Context                        │  ← Load EVERY session
 │  {project}/.github/ai-memory/project/           │
@@ -53,6 +53,9 @@ Step 7 → Read source code                             (last resort — targete
 
 **Priority rule**: Lower tiers override higher tiers when they conflict.
 Project conventions always override generic recommendations.
+
+For the full priority-rule and conflict-resolution model, see
+`workflows/session-and-memory.md` (Memory Hierarchy section).
 
 ---
 
@@ -105,7 +108,7 @@ Each command is a two-layer system:
 ## Repository Discovery (New Repository)
 
 When working in an unfamiliar repository, run the project discovery workflow:
-→ `ai-devagent/workflows/project-discovery.md`
+→ `ai-devagent/workflows/session-and-memory.md` (Project Discovery section)
 
 This workflow initializes the `{project}/.github/ai-memory/` structure without broad repository scans.
 
@@ -114,7 +117,7 @@ This workflow initializes the `{project}/.github/ai-memory/` structure without b
 ## Multi-Project Workspace
 
 This AI DevAgent manages multiple projects. The workspace registry is the source of truth:
-→ `ai-devagent/workspace-registry.md`
+→ `.github/workspace-registry.md` (generated per-workspace by the installer — see `setup/install.ps1`)
 
 All task routing, project identification, and memory loading starts from the workspace registry.
 The **Primary Agent** (`agents/primary-agent.agent.md`) is responsible for this routing.

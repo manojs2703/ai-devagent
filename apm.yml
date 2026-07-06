@@ -19,6 +19,7 @@ entry: CLAUDE.md
 files:
   - CLAUDE.md
   - ai-devagent/
+  - setup/
 
 keywords:
   - agent
@@ -33,6 +34,4 @@ dependencies:
   mcp: []
 
 scripts:
-  install: pwsh -File install.ps1
-
-# IDE plugin installation: configured separately per IDE (VS Code, JetBrains, etc.)
+  install: pwsh -File setup/install.ps1

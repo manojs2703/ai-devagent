@@ -10,14 +10,14 @@ Before processing ANY request, execute in order:
 
 ```
 1. Read  ai-devagent/00-entrypoint.md              → operating model, memory hierarchy
-2. Read  ai-devagent/workspace-registry.md          → project list, paths, status
+2. Read  .github/workspace-registry.md              → project list, paths, status
 3. Identify target project from user input          → route to correct project root
 4. Read  {project}/.github/ai-memory/00-index.md   → project memory index
 5. Read  {project}/.github/ai-memory/project/p07-active-context.md  → current state
 6. Load  task-specific project memory files         → only what the task needs
 ```
 
-**If step 4 fails (no ai-memory exists):** Run `ai-devagent/workflows/project-discovery.md` first.
+**If step 4 fails (no ai-memory exists):** Run the Project Discovery section of `ai-devagent/workflows/session-and-memory.md` first.
 
 ---
 
@@ -40,13 +40,12 @@ This agent is the **single entry point** for all implementation tasks. It:
 Determine the target project by matching the user's input against the workspace registry:
 
 ```
-User mentions "EPL", "epl_*" module, Jira prefix "EPL-"  → EPL-Project
-User mentions "EVPS", "Evps", evps_*                      → Evps-Project
-User explicitly names a project path                       → Use that path
-Ambiguous / multi-project                                  → Ask user to clarify
+User input matches a Project ID, keyword, or path in the registry  → Route to that project
+User explicitly names a project path                                → Use that path
+Ambiguous / no match / multiple matches                             → Ask user to clarify
 ```
 
-See `ai-devagent/workspace-registry.md` for the complete project index.
+See `.github/workspace-registry.md` for the complete project index and routing rules.
 
 ---
 
@@ -151,7 +150,7 @@ Update active-context.md:
 When the user references a project that has no `/.github/ai-memory/` directory:
 
 1. Inform the user that project memory needs to be initialized
-2. Run `ai-devagent/workflows/project-discovery.md`
+2. Run the Project Discovery section of `ai-devagent/workflows/session-and-memory.md`
 3. Create the full `.github/ai-memory/` structure
 4. Then proceed with the requested task
 

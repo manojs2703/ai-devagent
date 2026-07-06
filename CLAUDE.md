@@ -11,7 +11,7 @@ At the start of every session, read `ai-devagent/00-entrypoint.md` and follow th
 | File | Purpose |
 |------|---------|
 | `ai-devagent/00-entrypoint.md` | Entry point — read first every session |
-| `ai-devagent/workspace-registry.md` | Project registry — all managed projects |
+| `.github/workspace-registry.md` | Project registry — generated per-workspace by the installer |
 | `ai-devagent/agents/primary-agent.agent.md` | Primary agent — entry point for all implementation |
 
 ## Package Contents
@@ -19,7 +19,6 @@ At the start of every session, read `ai-devagent/00-entrypoint.md` and follow th
 ```
 ai-devagent/
 ├── 00-entrypoint.md       ← START HERE every session
-├── workspace-registry.md  ← Project index
 ├── agents/                ← Agent definitions (primary, code-optimizer, task-propagator)
 ├── workflows/             ← Task workflows (analyse, plan, implement, test, review, commit)
 ├── knowledge/             ← Generic engineering intelligence (Java, APIs, testing, etc.)

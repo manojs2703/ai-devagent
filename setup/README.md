@@ -36,7 +36,7 @@ Open PowerShell in your workspace root directory, then run:
 
 This does two things automatically:
 1. Clones the plugin into `%USERPROFILE%\.ai-devagent\` (hidden, global — only runs once)
-2. Creates `.github\` configuration files in your current workspace
+2. Creates `CLAUDE.md` and `.github\` configuration files in your current workspace
 
 > If the plugin is already installed and you only need to set up a new workspace:
 > ```powershell
@@ -112,6 +112,7 @@ Or to pull the latest plugin version:
         └── skills\
 
 {WorkspaceRoot}\
+├── CLAUDE.md                       ← Claude Code reads this automatically
 └── .github\
     ├── copilot-instructions.md     ← Copilot reads this automatically
     ├── workspace-registry.md       ← Your project list (edit this)
