@@ -18,7 +18,7 @@ Tier 2 — Project Memory              (project-specific, load for all project t
 
 Tier 3 — AI DevAgent Knowledge       (generic principles, when project memory is silent)
   └─ ai-devagent/knowledge/*.md
-  └─ ai-devagent/workflows/*.md
+  └─ ai-devagent/memory/*.md
 
 Tier 4 — Source Code                 (last resort — targeted reads only)
   └─ One or two specific files — never broad scans
@@ -53,6 +53,26 @@ Question or task arrived?
 └─ None of the above?
      Source code → one specific targeted file
 ```
+
+---
+
+## Task-to-Memory Routing
+
+| Task type | Load from project memory |
+|-----------|--------------------------|
+| New story analysis | `p02-project-registry.md` + project context file |
+| Implementation | `p04-pattern-library.md` + `p05-template-library.md` |
+| Architecture decision | `p01-workspace-architecture.md` + `p04-pattern-library.md` |
+| Testing | `p04-pattern-library.md` (for test annotations) |
+| Commit / release | `p07-active-context.md` only |
+| Review | No project memory needed — diff is the input |
+
+### Continuation (Existing Work)
+
+If `active-context.md` shows an active story:
+1. Read the story's analysis file from `{project}/.github/story-analyses/`
+2. Resume from the documented `Next action`
+3. Skip re-analysis — use stored analysis
 
 ---
 

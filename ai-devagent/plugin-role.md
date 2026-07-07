@@ -24,7 +24,7 @@ No copy of these files exists in the workspace. Always read from the plugin path
 6. Load  task-specific project memory
 ```
 
-If no `ai-memory` exists for the target project → run the Project Discovery section of `__PLUGIN__\workflows\session-and-memory.md` first.
+If no `ai-memory` exists for the target project → run `__PLUGIN__\memory\project-discovery.md` first.
 
 ### Core Principles
 
@@ -51,7 +51,7 @@ When any command below is invoked, read the linked devagent prompt file and exec
 | `/propagate [task]` | `__PLUGIN__\prompts\propagate.md` |
 | `/optimize [file]` | `__PLUGIN__\agents\code-optimizer.agent.md` |
 | `/translate` | `__PLUGIN__\prompts\translate.md` |
-| `/discover [project]` | `__PLUGIN__\workflows\session-and-memory.md` (Project Discovery section) |
+| `/discover [project]` | `__PLUGIN__\memory\project-discovery.md` |
 
 ### Knowledge Files (Generic)
 

@@ -497,7 +497,7 @@ tools:
         body = @'
 # /discover — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\workflows\session-and-memory.md`, Project Discovery section, and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\memory\project-discovery.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full discovery workflow.
 '@

@@ -87,6 +87,16 @@ Project conventions WIN over generic standards.
 This library provides defaults. Project memory provides overrides.
 Never replace project conventions with library defaults unless explicitly requested.
 
+### Conflict Resolution Examples
+
+| Topic | Generic Knowledge | Project Knowledge | Use |
+|-------|-----------------|------------------|-----|
+| Transaction annotation | `@Transactional` | `@TransactionalMandatory` | Project |
+| Repository base | `JpaRepository<E, Long>` | `ProjectRepository<E, Long>` | Project |
+| Test annotation | `@ExtendWith(MockitoExtension)` | `@UnitTest` | Project |
+| Null safety | `@NonNull` | `@NonNull` | Same — either |
+| Error response | Generic structure | Project's error structure | Project |
+
 ---
 
 ## AI DevAgent Maintenance Rules
@@ -108,7 +118,6 @@ Never replace project conventions with library defaults unless explicitly reques
 | `00-entrypoint.md` | 500 tokens | 700 tokens |
 | `knowledge/*.md` files | 700 tokens | 1,000 tokens |
 | `memory/*.md` files | 500 tokens | 700 tokens |
-| `workflows/*.md` files | 600 tokens | 900 tokens |
 
 If a file exceeds its soft limit, review for outdated content before adding more.
 

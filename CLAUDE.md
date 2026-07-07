@@ -20,9 +20,8 @@ At the start of every session, read `ai-devagent/00-entrypoint.md` and follow th
 ai-devagent/
 ├── 00-entrypoint.md       ← START HERE every session
 ├── agents/                ← Agent definitions (primary, code-optimizer, task-propagator)
-├── workflows/             ← Task workflows (analyse, plan, implement, test, review, commit)
 ├── knowledge/             ← Generic engineering intelligence (Java, APIs, testing, etc.)
-├── memory/                ← Memory governance rules
+├── memory/                ← Memory governance rules (retrieval, classification, maintenance, project discovery)
 ├── prompts/               ← Slash command implementations
 └── skills/                ← Reusable skill libraries
 ```

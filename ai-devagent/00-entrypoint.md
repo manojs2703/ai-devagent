@@ -22,7 +22,7 @@ Step 6 → Load ai-devagent knowledge files             (only if project memory 
 Step 7 → Read source code                             (last resort — targeted reads only)
 ```
 
-**If no ai-memory exists for the target project**: Run the Project Discovery section of `ai-devagent/workflows/session-and-memory.md` before step 3.
+**If no ai-memory exists for the target project**: Run `ai-devagent/memory/project-discovery.md` before step 3.
 
 **Never skip to source code. Never scan the repository broadly. Follow the sequence.**
 
@@ -55,7 +55,7 @@ Step 7 → Read source code                             (last resort — targete
 Project conventions always override generic recommendations.
 
 For the full priority-rule and conflict-resolution model, see
-`workflows/session-and-memory.md` (Memory Hierarchy section).
+`memory/classification-rules.md` (Priority Rule section).
 
 ---
 
@@ -108,7 +108,7 @@ Each command is a two-layer system:
 ## Repository Discovery (New Repository)
 
 When working in an unfamiliar repository, run the project discovery workflow:
-→ `ai-devagent/workflows/session-and-memory.md` (Project Discovery section)
+→ `ai-devagent/memory/project-discovery.md`
 
 This workflow initializes the `{project}/.github/ai-memory/` structure without broad repository scans.
 

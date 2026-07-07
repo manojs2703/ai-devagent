@@ -92,6 +92,7 @@ After every session with meaningful work:
 6. Did I discover a generic pattern? → Add to `ai-devagent/knowledge/`
 7. Did I discover a project-specific rule? → Add to `project/` memory
 8. Is any memory stale? → Remove or update it
+9. Are completed tasks cleared from the open tasks list? → Clear them
 
 ---
 

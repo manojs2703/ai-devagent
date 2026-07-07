@@ -24,31 +24,26 @@ ai-devagent/
 │   ├── code-optimizer.agent.md   ← Java code optimization analysis
 │   └── task-propagator.agent.md  ← Task decomposition and propagation
 │
-├── workflows/                ← How to execute tasks
-│   ├── session-and-memory.md ← Memory hierarchy, session startup, project discovery
-│   ├── task-analyse.md       ← /analyse workflow
-│   ├── task-plan.md          ← /plan workflow
-│   ├── task-implement.md     ← /implement workflow
-│   ├── task-test.md          ← /test workflow
-│   ├── task-commit.md        ← /commit workflow
-│   ├── task-review.md        ← /review workflow
-│   └── task-translate.md     ← /translate workflow
+├── prompts/                   ← Generic workflow implementations (analyse, plan, implement, test, review, commit, ...)
 │
 ├── memory/                   ← Memory governance
 │   ├── retrieval-strategy.md ← When and how to retrieve knowledge
 │   ├── classification-rules.md ← What knowledge goes where
 │   ├── maintenance-rules.md  ← When and how to update memory
+│   ├── project-discovery.md  ← Bootstrapping memory for a new project
 │   ├── token-optimization.md ← Token budget management
 │   └── sync-protocol.md      ← How CLAUDE.md and copilot-instructions.md stay in sync
 │
-└── knowledge/                ← Generic engineering intelligence
-    ├── skillset-index.md     ← Engineering capability map
-    ├── architecture-patterns.md ← AP-01 to AP-10
-    ├── java-engineering.md   ← Java 21, Lombok, Streams, naming
-    ├── data-access-patterns.md ← ORM, transactions, JPQL
-    ├── testing-strategies.md ← Test pyramid, GWT, Mockito
-    ├── api-error-handling.md ← REST, error handling, logging
-    └── security-performance.md ← Security, caching, observability
+├── knowledge/                ← Generic engineering intelligence
+│   ├── skillset-index.md     ← Engineering capability map
+│   ├── architecture-patterns.md ← AP-01 to AP-10
+│   ├── java-engineering.md   ← Java 21, Lombok, Streams, naming
+│   ├── data-access-patterns.md ← ORM, transactions, JPQL
+│   ├── testing-strategies.md ← Test pyramid, GWT, Mockito
+│   ├── api-error-handling.md ← REST, error handling, logging
+│   └── security-performance.md ← Security, caching, observability
+│
+└── skills/                   ← Reusable skill libraries (Java, Spring, JPA, testing, Maven, git, ...)
 ```
 
 ---

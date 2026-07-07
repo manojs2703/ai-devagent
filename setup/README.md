@@ -124,7 +124,6 @@ Or to pull the latest plugin version:
     └── ai-devagent\
         ├── 00-entrypoint.md
         ├── agents\
-        ├── workflows\
         ├── knowledge\
         ├── memory\
         ├── prompts\
