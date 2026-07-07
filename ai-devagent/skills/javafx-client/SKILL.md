@@ -1,3 +1,8 @@
+---
+name: javafx-client
+description: Load when working on JavaFX desktop client modules — controllers, FXML views, table views, filters, or forms.
+---
+
 # Skill: JavaFX Client Development
 
 ## When to Apply This Skill

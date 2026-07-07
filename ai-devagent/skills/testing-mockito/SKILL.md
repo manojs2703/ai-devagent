@@ -1,3 +1,8 @@
+---
+name: testing-mockito
+description: Load when writing unit tests that require mocking dependencies.
+---
+
 # Skill: Mockito -- Mocking Framework
 ## When to Apply This Skill
 Load this skill when writing unit tests that require mocking dependencies.

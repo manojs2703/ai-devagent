@@ -28,5 +28,4 @@ dependencies:
   apm: []
   mcp: []
 
-scripts:
-  install: pwsh -File setup/install.ps1
+scripts: {}

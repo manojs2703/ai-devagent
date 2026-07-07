@@ -8,12 +8,12 @@
 
 | New knowledge type | Store in |
 |-------------------|----------|
-| Generic engineering principle (any project) | `ai-devagent/knowledge/` |
+| Generic engineering principle (any project) | `${CLAUDE_PLUGIN_ROOT}/knowledge/` |
 | Project-specific convention or pattern | `.github/ai-memory/project/` |
 | Both abstract + concrete project implementation | Both locations |
 | One-time story analysis | `{project}/.github/story-analyses/{name}.md` |
 
-For classification decisions: → `ai-devagent/memory/classification-rules.md`
+For classification decisions: → `${CLAUDE_PLUGIN_ROOT}/memory/classification-rules.md`
 
 ---
 
@@ -73,7 +73,7 @@ For classification decisions: → `ai-devagent/memory/classification-rules.md`
 - New framework component used for first time
 
 **`p06-atlassian-structure.md`** — update when:
-- First `/analyse` run for a project (created, not just updated — see `prompts/analyse.md`)
+- First `/analyse` run for a project (created, not just updated — see `commands/analyse.md`)
 - The Jira field used for acceptance criteria changes
 - A new Confluence space or parent page becomes the norm for linked docs
 - Any other discovered Jira/Confluence convention turns out to be stale or wrong
@@ -89,7 +89,7 @@ After every session with meaningful work:
 3. Did I read the same source file twice? → Extract key knowledge to memory
 4. Did I regenerate the same pattern? → Add to template library
 5. Was retrieval efficient? → Update retrieval strategy if not
-6. Did I discover a generic pattern? → Add to `ai-devagent/knowledge/`
+6. Did I discover a generic pattern? → Add to `${CLAUDE_PLUGIN_ROOT}/knowledge/`
 7. Did I discover a project-specific rule? → Add to `project/` memory
 8. Is any memory stale? → Remove or update it
 9. Are completed tasks cleared from the open tasks list? → Clear them

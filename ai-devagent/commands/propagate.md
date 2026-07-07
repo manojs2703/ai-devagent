@@ -6,7 +6,7 @@
 
 ## Process
 
-Follow `ai-devagent/agents/task-propagator.agent.md` for the complete propagation workflow.
+Follow `${CLAUDE_PLUGIN_ROOT}/agents/task-propagator.agent.md` for the complete propagation workflow.
 
 ### Quick Reference — Propagation Steps
 

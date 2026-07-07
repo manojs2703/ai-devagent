@@ -8,7 +8,7 @@
 
 > "Is this knowledge true for any software project, or is it specific to this repository?"
 
-- True for any project → `ai-devagent/knowledge/`
+- True for any project → `${CLAUDE_PLUGIN_ROOT}/knowledge/`
 - Specific to this repository → `.github/ai-memory/project/`
 - Both aspects → Both locations (abstract principle + concrete implementation)
 - One-time story analysis → `{project}/.github/story-analyses/`
@@ -21,14 +21,14 @@
 New knowledge to store?
 │
 ├─ True for any software project regardless of technology?
-│    Yes → ai-devagent/knowledge/
+│    Yes → ${CLAUDE_PLUGIN_ROOT}/knowledge/
 │
 ├─ Specific to this repository (framework, domain, conventions)?
 │    Yes → .github/ai-memory/project/
 │
 ├─ Has both generic and project-specific aspects?
 │    Yes → Both:
-│         ai-devagent/knowledge/: abstract principle (what and why)
+│         ${CLAUDE_PLUGIN_ROOT}/knowledge/: abstract principle (what and why)
 │         .github/ai-memory/project/: concrete implementation (how in this project)
 │
 └─ One-time analysis for a specific story or task?

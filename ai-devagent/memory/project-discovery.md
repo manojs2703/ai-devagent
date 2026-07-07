@@ -79,7 +79,7 @@ Create the following files:
 ```
 
 **Not created here**: `p06-atlassian-structure.md` is created on-demand by `/analyse` on its
-first run for this project, not by discovery — see `prompts/analyse.md` Step 2c.
+first run for this project, not by discovery — see `commands/analyse.md` Step 2c.
 
 ---
 

@@ -1,3 +1,8 @@
+---
+name: git-workflow
+description: Load when working with branches, commits, or the /commit and /review commands.
+---
+
 # Skill: Git Workflow
 ## When to Apply This Skill
 Load this skill when working with branches, commits, or the `/commit` and `/review` commands.

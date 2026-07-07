@@ -1,3 +1,8 @@
+---
+name: dto-patterns
+description: Load when creating DTOs, defining service interfaces, or implementing data transfer between layers.
+---
+
 # Skill: DTO and Service Interface Patterns
 ## When to Apply This Skill
 Load this skill when creating DTOs, defining service interfaces, or implementing data transfer between layers.

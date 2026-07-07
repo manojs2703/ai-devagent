@@ -1,3 +1,8 @@
+---
+name: testing-junit5
+description: Load when writing or reviewing JUnit 5 test classes.
+---
+
 # Skill: JUnit 5 -- Test Framework
 ## When to Apply This Skill
 Load this skill when writing or reviewing JUnit 5 test classes.

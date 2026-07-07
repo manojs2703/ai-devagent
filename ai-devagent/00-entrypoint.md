@@ -22,7 +22,7 @@ Step 6 → Load ai-devagent knowledge files             (only if project memory 
 Step 7 → Read source code                             (last resort — targeted reads only)
 ```
 
-**If no ai-memory exists for the target project**: Run `ai-devagent/memory/project-discovery.md` before step 3.
+**If no ai-memory exists for the target project**: Run `${CLAUDE_PLUGIN_ROOT}/memory/project-discovery.md` before step 3.
 
 **Never skip to source code. Never scan the repository broadly. Follow the sequence.**
 
@@ -44,7 +44,7 @@ Step 7 → Read source code                             (last resort — targete
 │  {project}/.github/workflow/                    │
 ├─────────────────────────────────────────────────┤
 │  Tier 3 — AI DevAgent Knowledge                 │  ← Load when project memory silent
-│  ai-devagent/knowledge/*.md                     │
+│  ${CLAUDE_PLUGIN_ROOT}/knowledge/*.md                     │
 ├─────────────────────────────────────────────────┤
 │  Tier 4 — Source Code                           │  ← Last resort — targeted only
 │  One or two specific files — never broad scans  │
@@ -65,7 +65,7 @@ For the full priority-rule and conflict-resolution model, see
 |-------------|------|-----|
 | `active-context.md` | Every session | Restores current state — no re-analysis |
 | Project memory files | Task-specific | Avoid loading all — load only relevant files |
-| `ai-devagent/knowledge/` | Project memory is silent | Generic fallback only |
+| `${CLAUDE_PLUGIN_ROOT}/knowledge/` | Project memory is silent | Generic fallback only |
 | Source code | Specific class needed | Never for orientation |
 
 **Token discipline**: Source code is the most expensive context. Exhaust all memory layers first.
@@ -76,19 +76,19 @@ For the full priority-rule and conflict-resolution model, see
 
 Each command is a two-layer system:
 - **EPL wrapper** (`.github/prompts/`): YAML frontmatter + EPL context → references the generic workflow
-- **Generic workflow** (`ai-devagent/prompts/`): authoritative step-by-step implementation
+- **Generic workflow** (`${CLAUDE_PLUGIN_ROOT}/commands/`): authoritative step-by-step implementation
 
 | Command | Generic Workflow (authoritative) |
 |---------|----------------------------------|
-| `/analyse` | `prompts/analyse.md` |
-| `/plan` | `prompts/plan.md` |
-| `/implement` | `prompts/implement.md` |
-| `/test` | `prompts/test.md` |
-| `/commit` | `prompts/commit.md` |
-| `/review` | `prompts/review.md` |
-| `/translate` | `prompts/translate.md` |
-| `/doall` | `prompts/doall.md` |
-| `/propagate` | `prompts/propagate.md` |
+| `/analyse` | `commands/analyse.md` |
+| `/plan` | `commands/plan.md` |
+| `/implement` | `commands/implement.md` |
+| `/test` | `commands/test.md` |
+| `/commit` | `commands/commit.md` |
+| `/review` | `commands/review.md` |
+| `/translate` | `commands/translate.md` |
+| `/doall` | `commands/doall.md` |
+| `/propagate` | `commands/propagate.md` |
 
 ---
 
@@ -108,7 +108,7 @@ Each command is a two-layer system:
 ## Repository Discovery (New Repository)
 
 When working in an unfamiliar repository, run the project discovery workflow:
-→ `ai-devagent/memory/project-discovery.md`
+→ `${CLAUDE_PLUGIN_ROOT}/memory/project-discovery.md`
 
 This workflow initializes the `{project}/.github/ai-memory/` structure without broad repository scans.
 
@@ -136,7 +136,8 @@ Task type?
 ├─ API design / error handling?  → knowledge/api-error-handling.md
 ├─ Security / performance?       → knowledge/security-performance.md
 ├─ Which knowledge applies?      → knowledge/skillset-index.md
-└─ What goes in memory vs code?  → memory/classification-rules.md
+├─ What goes in memory vs code?  → memory/classification-rules.md
+└─ Token usage running high?     → memory/token-optimization.md
 ```
 
 ---
@@ -145,7 +146,7 @@ Task type?
 
 | Rule | Action |
 |------|--------|
-| Knowledge is generic | → `ai-devagent/knowledge/` |
+| Knowledge is generic | → `${CLAUDE_PLUGIN_ROOT}/knowledge/` |
 | Knowledge is project-specific | → `.github/ai-memory/project/` |
 | Knowledge is both | → Both (abstract principle + concrete implementation) |
 | One-time story analysis | → `{project}/.github/story-analyses/` |

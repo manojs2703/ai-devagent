@@ -26,9 +26,9 @@ For file-specific review:
 
 ## Skills to Load
 
-- `ai-devagent/skills/git-workflow.md` — extracting diffs, avoiding Git artifacts
-- `ai-devagent/skills/java-coding.md` — code quality standards
-- `ai-devagent/skills/testing-guidelines.md` — test quality standards
+- `${CLAUDE_PLUGIN_ROOT}/skills/git-workflow/SKILL.md` — extracting diffs, avoiding Git artifacts
+- `${CLAUDE_PLUGIN_ROOT}/skills/java-coding/SKILL.md` — code quality standards
+- `${CLAUDE_PLUGIN_ROOT}/skills/testing-guidelines/SKILL.md` — test quality standards
 
 ---
 

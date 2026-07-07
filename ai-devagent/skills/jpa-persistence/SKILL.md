@@ -1,3 +1,8 @@
+---
+name: jpa-persistence
+description: Load when working with JPA entities, repositories, transactions, or JPQL queries.
+---
+
 # Skill: JPA Persistence
 ## When to Apply This Skill
 Load this skill when working with JPA entities, repositories, transactions, or JPQL queries.

@@ -17,8 +17,8 @@ Tier 2 — Project Memory              (project-specific, load for all project t
   └─ {project}/.github/workflow/modules/{module}.md
 
 Tier 3 — AI DevAgent Knowledge       (generic principles, when project memory is silent)
-  └─ ai-devagent/knowledge/*.md
-  └─ ai-devagent/memory/*.md
+  └─ ${CLAUDE_PLUGIN_ROOT}/knowledge/*.md
+  └─ ${CLAUDE_PLUGIN_ROOT}/memory/*.md
 
 Tier 4 — Source Code                 (last resort — targeted reads only)
   └─ One or two specific files — never broad scans
@@ -38,13 +38,13 @@ Question or task arrived?
 │    Yes → active-context.md (resume from last state)
 │
 ├─ Architecture / pattern question?
-│    Check project memory (p04) first → then ai-devagent/knowledge/architecture-patterns.md
+│    Check project memory (p04) first → then ${CLAUDE_PLUGIN_ROOT}/knowledge/architecture-patterns.md
 │
 ├─ Java code question?
-│    Check project skill file first → then ai-devagent/knowledge/java-engineering.md
+│    Check project skill file first → then ${CLAUDE_PLUGIN_ROOT}/knowledge/java-engineering.md
 │
 ├─ Test structure question?
-│    Check project test skill → then ai-devagent/knowledge/testing-strategies.md
+│    Check project test skill → then ${CLAUDE_PLUGIN_ROOT}/knowledge/testing-strategies.md
 │
 ├─ Module/package question?
 │    Check project memory (p01, p02, project context file)
@@ -114,6 +114,9 @@ Priority order for finding an existing example:
 | /test | 2,000-4,000 | AI testing knowledge + test skill + class under test |
 | /commit | 1,000-2,000 | Active context + git skill |
 | /review | 3,000-6,000 | Diff + relevant skill files |
+
+**If actual usage is trending over budget** (5+ source files read, all skill files loaded, repeated
+re-reads of the same file) → read `memory/token-optimization.md` for detailed mitigation strategies.
 
 ---
 

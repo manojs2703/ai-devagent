@@ -1,3 +1,8 @@
+---
+name: testing-assertj
+description: Load when writing assertions in tests. AssertJ fluent assertions.
+---
+
 # Skill: AssertJ -- Fluent Assertions
 ## When to Apply This Skill
 Load this skill when writing assertions in tests.

@@ -1,3 +1,8 @@
+---
+name: spring-framework
+description: Load when creating or modifying Spring services, components, configuration, or controllers.
+---
+
 # Skill: Spring Framework
 ## When to Apply This Skill
 Load this skill when creating or modifying Spring services, components, configuration, or controllers.

@@ -18,7 +18,7 @@
 
 ## Skills to Load
 
-- `ai-devagent/skills/git-workflow.md` — commit format, branch naming, pre-commit checklist
+- `${CLAUDE_PLUGIN_ROOT}/skills/git-workflow/SKILL.md` — commit format, branch naming, pre-commit checklist
 
 ---
 

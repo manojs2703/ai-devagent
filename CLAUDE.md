@@ -18,10 +18,16 @@ At the start of every session, read `ai-devagent/00-entrypoint.md` and follow th
 
 ```
 ai-devagent/
-├── 00-entrypoint.md       ← START HERE every session
-├── agents/                ← Agent definitions (primary, code-optimizer, task-propagator)
-├── knowledge/             ← Generic engineering intelligence (Java, APIs, testing, etc.)
-├── memory/                ← Memory governance rules (retrieval, classification, maintenance, project discovery)
-├── prompts/               ← Slash command implementations
-└── skills/                ← Reusable skill libraries
+├── .claude-plugin/plugin.json  ← Claude Code plugin manifest
+├── 00-entrypoint.md            ← START HERE every session
+├── agents/                     ← Agent definitions (primary, code-optimizer, task-propagator)
+├── commands/                   ← Slash command implementations (analyse, plan, implement, ...)
+├── hooks/hooks.json            ← SessionStart hook — auto-reads 00-entrypoint.md
+├── knowledge/                  ← Generic engineering intelligence (Java, APIs, testing, etc.)
+├── memory/                     ← Memory governance rules (retrieval, classification, maintenance, project discovery)
+└── skills/                     ← Reusable skills, one folder per skill with SKILL.md
 ```
+
+This repo is also a Claude Code plugin marketplace (`.claude-plugin/marketplace.json`
+at the repo root). To dogfood it as an installed plugin instead of reading it via
+this file, run `claude --plugin-dir ./ai-devagent`.

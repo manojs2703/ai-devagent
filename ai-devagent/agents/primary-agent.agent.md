@@ -9,7 +9,7 @@
 Before processing ANY request, execute in order:
 
 ```
-1. Read  ai-devagent/00-entrypoint.md              → operating model, memory hierarchy
+1. Read  ${CLAUDE_PLUGIN_ROOT}/00-entrypoint.md              → operating model, memory hierarchy
 2. Read  .github/workspace-registry.md              → project list, paths, status
 3. Identify target project from user input          → route to correct project root
 4. Read  {project}/.github/ai-memory/00-index.md   → project memory index
@@ -17,7 +17,7 @@ Before processing ANY request, execute in order:
 6. Load  task-specific project memory files         → only what the task needs
 ```
 
-**If step 4 fails (no ai-memory exists):** Run `ai-devagent/memory/project-discovery.md` first.
+**If step 4 fails (no ai-memory exists):** Run `${CLAUDE_PLUGIN_ROOT}/memory/project-discovery.md` first.
 
 ---
 
@@ -150,7 +150,7 @@ Update active-context.md:
 When the user references a project that has no `/.github/ai-memory/` directory:
 
 1. Inform the user that project memory needs to be initialized
-2. Run `ai-devagent/memory/project-discovery.md`
+2. Run `${CLAUDE_PLUGIN_ROOT}/memory/project-discovery.md`
 3. Create the full `.github/ai-memory/` structure
 4. Then proceed with the requested task
 

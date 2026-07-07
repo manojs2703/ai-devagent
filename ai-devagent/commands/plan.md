@@ -13,7 +13,7 @@
 2. analysis file                   → affected modules, patterns, risks
 3. p04-pattern-library.md          → matching project patterns (P-numbers)
 4. p05-template-library.md         → matching templates (T-numbers)
-5. ai-devagent/knowledge/          → generic principles (only if patterns are silent)
+5. ${CLAUDE_PLUGIN_ROOT}/knowledge/          → generic principles (only if patterns are silent)
 6. 1-2 reference source files      → nearest similar existing class (last resort)
 ```
 
@@ -35,7 +35,7 @@
 For each new component to create:
 - Check `p04-pattern-library.md` for a matching pattern (P-number)
 - Check `p05-template-library.md` for a matching template (T-number)
-- If no pattern/template: check `ai-devagent/knowledge/architecture-patterns.md`
+- If no pattern/template: check `${CLAUDE_PLUGIN_ROOT}/knowledge/architecture-patterns.md`
 - **If the task involves a new REST endpoint or service conversion**: apply P12 (OpenAPI Module) — create YAML + individual server pom + individual client pom in `epl_api` as part of the plan
 
 ### Step 4 — Find Reference Implementations

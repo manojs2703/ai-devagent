@@ -1,0 +1,14 @@
+{
+  "name": "ai-devagent-marketplace",
+  "owner": {
+    "name": "Manoj Sathyanarayana",
+    "email": "Manoj.Sathyanarayana@msg-global.com"
+  },
+  "plugins": [
+    {
+      "name": "ai-devagent",
+      "source": "./ai-devagent",
+      "description": "AI DevAgent — a structured agent framework for AI-assisted software development."
+    }
+  ]
+}

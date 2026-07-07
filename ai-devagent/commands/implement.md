@@ -11,7 +11,7 @@
 1. active-context.md           → current task, patterns used
 2. plan file                   → specific tasks and templates
 3. p05-template-library.md     → template for the class being created
-4. ai-devagent/skills/java-coding.md  → always load for any Java code
+4. ${CLAUDE_PLUGIN_ROOT}/skills/java-coding/SKILL.md  → always load for any Java code
 5. tech-specific skill         → 1-2 additional (JPA, Spring, JavaFX, JMS)
 6. 1-2 reference source files  → existing similar class in the same module
 ```
@@ -26,16 +26,16 @@ Before writing any code, load the relevant skill files:
 
 | Task | Load |
 |------|------|
-| Any Java code | `ai-devagent/skills/java-coding.md` |
-| JPA entities, repositories | `ai-devagent/skills/jpa-persistence.md` |
-| Spring services, DI | `ai-devagent/skills/spring-framework.md` |
-| DTOs, service interfaces | `ai-devagent/skills/dto-patterns.md` |
-| Tests | `ai-devagent/skills/testing-guidelines.md` + junit5 + assertj + mockito |
-| JavaFX client | `ai-devagent/skills/javafx-client.md` |
-| JMS messaging | `ai-devagent/skills/jms-messaging.md` |
-| Maven / dependencies | `ai-devagent/skills/maven-build.md` |
-| Git / commits | `ai-devagent/skills/git-workflow.md` |
-| SQL scripts | `ai-devagent/skills/sql-scripts.md` |
+| Any Java code | `${CLAUDE_PLUGIN_ROOT}/skills/java-coding/SKILL.md` |
+| JPA entities, repositories | `${CLAUDE_PLUGIN_ROOT}/skills/jpa-persistence/SKILL.md` |
+| Spring services, DI | `${CLAUDE_PLUGIN_ROOT}/skills/spring-framework/SKILL.md` |
+| DTOs, service interfaces | `${CLAUDE_PLUGIN_ROOT}/skills/dto-patterns/SKILL.md` |
+| Tests | `${CLAUDE_PLUGIN_ROOT}/skills/testing-guidelines/SKILL.md` + junit5 + assertj + mockito |
+| JavaFX client | `${CLAUDE_PLUGIN_ROOT}/skills/javafx-client/SKILL.md` |
+| JMS messaging | `${CLAUDE_PLUGIN_ROOT}/skills/jms-messaging/SKILL.md` |
+| Maven / dependencies | `${CLAUDE_PLUGIN_ROOT}/skills/maven-build/SKILL.md` |
+| Git / commits | `${CLAUDE_PLUGIN_ROOT}/skills/git-workflow/SKILL.md` |
+| SQL scripts | `${CLAUDE_PLUGIN_ROOT}/skills/sql-scripts/SKILL.md` |
 
 **Always load `java-coding.md` for any Java code.**
 **Also load project-specific VW skills from `.github/skills/vw/` for EPL Bestand projects.**

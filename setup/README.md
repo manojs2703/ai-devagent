@@ -1,18 +1,59 @@
 # AI DevAgent — Setup
 
-This folder is all you need to install and use the AI DevAgent with GitHub Copilot in IntelliJ.
+This is the installation guide for AI DevAgent — pick whichever method matches your tooling.
+For what the framework actually does once installed, see [`ai-devagent/README.md`](../ai-devagent/README.md).
 
 ---
 
-## What This Does
+## Claude Code
+
+This repo is a plugin marketplace (`.claude-plugin/marketplace.json` at the repo root):
+
+```
+/plugin marketplace add <this-repo-url-or-path>
+/plugin install ai-devagent
+```
+
+Once installed, commands are namespaced by plugin name (`/ai-devagent:analyse`,
+`/ai-devagent:plan`, ...), the three agents become available subagents, and a
+`SessionStart` hook automatically surfaces `00-entrypoint.md` at the start of
+every session — no manual `CLAUDE.md` wiring required.
+
+For local development, load the plugin directly without installing it:
+```
+claude --plugin-dir ./ai-devagent
+```
+
+---
+
+## APM (Agent Package Manager)
+
+This repo ships an `apm.yml` at the repo root, so it can be pulled into another
+workspace as an APM package. Install the APM CLI first if you don't have it:
+```powershell
+irm https://aka.ms/apm-windows | iex   # Windows
+curl -sSL https://aka.ms/apm-unix | sh # macOS/Linux
+```
+Then, from the root of the workspace you want to add it to:
+```powershell
+apm install github.com/manojs2703/ai-devagent --target claude,copilot
+```
+Pin a version with `#<ref>` (e.g. `...ai-devagent#v1.0.0`). This resolves
+`apm.yml`'s `dependencies` and runs its `scripts.install` (`pwsh -File setup/install.ps1`,
+the same Copilot installer documented below), writing a lockfile (`apm.lock.yaml`) so the
+install is reproducible across teammates' machines.
+
+---
+
+## GitHub Copilot (IntelliJ)
+
+### What This Does
 
 - Installs the AI DevAgent plugin **once, globally** into a hidden folder on your machine
 - Generates all required GitHub Copilot configuration files in your workspace
 - Works across **multiple projects and workspaces** — run the installer once per workspace
 
----
-
-## Prerequisites
+### Prerequisites
 
 | Tool | Required For |
 |------|-------------|
@@ -22,11 +63,9 @@ This folder is all you need to install and use the AI DevAgent with GitHub Copil
 | [GitHub Copilot plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) | AI assistant in IntelliJ |
 | GitHub account with Copilot access | GitHub Copilot subscription |
 
----
+### Installation
 
-## Installation
-
-### Step 1 — Run the installer
+#### Step 1 — Run the installer
 
 Open PowerShell in your workspace root directory, then run:
 
@@ -51,7 +90,7 @@ This does two things automatically:
 > ```
 > This is workspace-specific and safe to change later by re-running with `-SkipPluginInstall`.
 
-### Step 2 — Configure your workspace
+#### Step 2 — Configure your workspace
 
 Edit the generated `.github\workspace-registry.md` and add your projects, plus each project's
 Jira project key and Confluence space key in the Atlassian Integration section:
@@ -76,22 +115,20 @@ usage and Confluence page structure and caches it in
 `{project}/.github/ai-memory/project/p06-atlassian-structure.md` — never in the plugin. Later
 runs read that cache instead of rediscovering it every time.
 
-### Step 3 — Install the GitHub Copilot plugin in IntelliJ
+#### Step 3 — Install the GitHub Copilot plugin in IntelliJ
 
 1. Open IntelliJ → **Settings** (`Ctrl+Alt+S`)
 2. Go to **Plugins → Marketplace**
 3. Search **GitHub Copilot** → Install → Restart IntelliJ
 4. After restart: **Tools → GitHub Copilot → Login to GitHub**
 
-### Step 4 — Open your workspace and verify
+#### Step 4 — Open your workspace and verify
 
 1. Open your workspace root in IntelliJ
 2. Open **GitHub Copilot Chat** (right panel or `Alt+\`)
 3. Type `/discover MyProject` — the agent will initialise AI memory for your project
 
----
-
-## Adding Another Workspace
+### Adding Another Workspace
 
 Just run the installer from the new workspace directory:
 
@@ -100,9 +137,7 @@ cd C:\Dev\AnotherWorkspace
 .\install.ps1 -SkipPluginInstall
 ```
 
----
-
-## Keeping the Plugin Up to Date
+### Keeping the Plugin Up to Date
 
 ```powershell
 .\install.ps1 -SkipPluginInstall   # re-generate workspace files only
@@ -114,9 +149,7 @@ Or to pull the latest plugin version:
 .\install.ps1                      # pulls latest and refreshes workspace files
 ```
 
----
-
-## What Gets Created
+### What Gets Created
 
 ```
 %USERPROFILE%\
@@ -148,9 +181,7 @@ Or to pull the latest plugin version:
         └── discover.prompt.md
 ```
 
----
-
-## Available Commands in Copilot Chat
+### Available Commands in Copilot Chat
 
 | Command | What it does |
 |---------|-------------|
@@ -166,9 +197,7 @@ Or to pull the latest plugin version:
 | `/optimize [file]` | Optimise a file for quality and performance |
 | `/translate` | Translate terms between languages/domains |
 
----
-
-## Troubleshooting
+### Troubleshooting
 
 **Copilot does not pick up the instructions**
 - Make sure IntelliJ is opened at the workspace root (the folder containing `.github\`)

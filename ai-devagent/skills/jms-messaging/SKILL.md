@@ -1,3 +1,8 @@
+---
+name: jms-messaging
+description: Load when working with JMS listeners, message queues, or asynchronous messaging.
+---
+
 # Skill: JMS Messaging
 
 ## When to Apply This Skill

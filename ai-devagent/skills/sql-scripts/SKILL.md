@@ -1,3 +1,8 @@
+---
+name: sql-scripts
+description: Load when creating database migration scripts or other SQL scripts.
+---
+
 # Skill: SQL Scripts
 
 ## When to Apply This Skill

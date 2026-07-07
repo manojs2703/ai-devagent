@@ -41,16 +41,16 @@ When any command below is invoked, read the linked devagent prompt file and exec
 
 | Command | DevAgent Source |
 |---------|-----------------|
-| `/analyse [task]` | `__PLUGIN__\prompts\analyse.md` |
-| `/plan [task]` | `__PLUGIN__\prompts\plan.md` |
-| `/implement` | `__PLUGIN__\prompts\implement.md` |
-| `/test` | `__PLUGIN__\prompts\test.md` |
-| `/review` | `__PLUGIN__\prompts\review.md` |
-| `/commit` | `__PLUGIN__\prompts\commit.md` |
-| `/doall [task]` | `__PLUGIN__\prompts\doall.md` |
-| `/propagate [task]` | `__PLUGIN__\prompts\propagate.md` |
+| `/analyse [task]` | `__PLUGIN__\commands\analyse.md` |
+| `/plan [task]` | `__PLUGIN__\commands\plan.md` |
+| `/implement` | `__PLUGIN__\commands\implement.md` |
+| `/test` | `__PLUGIN__\commands\test.md` |
+| `/review` | `__PLUGIN__\commands\review.md` |
+| `/commit` | `__PLUGIN__\commands\commit.md` |
+| `/doall [task]` | `__PLUGIN__\commands\doall.md` |
+| `/propagate [task]` | `__PLUGIN__\commands\propagate.md` |
 | `/optimize [file]` | `__PLUGIN__\agents\code-optimizer.agent.md` |
-| `/translate` | `__PLUGIN__\prompts\translate.md` |
+| `/translate` | `__PLUGIN__\commands\translate.md` |
 | `/discover [project]` | `__PLUGIN__\memory\project-discovery.md` |
 
 ### Knowledge Files (Generic)
@@ -68,13 +68,13 @@ Load only when project memory is silent:
 
 | Task | Load |
 |------|------|
-| Any Java code | `__PLUGIN__\skills\java-coding.md` |
-| JPA / persistence | `__PLUGIN__\skills\jpa-persistence.md` |
-| Spring services | `__PLUGIN__\skills\spring-framework.md` |
-| DTOs | `__PLUGIN__\skills\dto-patterns.md` |
-| Tests | `__PLUGIN__\skills\testing-guidelines.md` + junit5 + assertj + mockito |
-| JavaFX | `__PLUGIN__\skills\javafx-client.md` |
-| JMS messaging | `__PLUGIN__\skills\jms-messaging.md` |
-| Maven | `__PLUGIN__\skills\maven-build.md` |
-| Git | `__PLUGIN__\skills\git-workflow.md` |
-| SQL | `__PLUGIN__\skills\sql-scripts.md` |
+| Any Java code | `__PLUGIN__\skills\java-coding\SKILL.md` |
+| JPA / persistence | `__PLUGIN__\skills\jpa-persistence\SKILL.md` |
+| Spring services | `__PLUGIN__\skills\spring-framework\SKILL.md` |
+| DTOs | `__PLUGIN__\skills\dto-patterns\SKILL.md` |
+| Tests | `__PLUGIN__\skills\testing-guidelines\SKILL.md` + junit5 + assertj + mockito |
+| JavaFX | `__PLUGIN__\skills\javafx-client\SKILL.md` |
+| JMS messaging | `__PLUGIN__\skills\jms-messaging\SKILL.md` |
+| Maven | `__PLUGIN__\skills\maven-build\SKILL.md` |
+| Git | `__PLUGIN__\skills\git-workflow\SKILL.md` |
+| SQL | `__PLUGIN__\skills\sql-scripts\SKILL.md` |

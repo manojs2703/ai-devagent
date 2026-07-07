@@ -8,7 +8,7 @@
 
 ```
 1. active-context.md                              → current story, patterns used
-2. ai-devagent/knowledge/testing-strategies.md    → GWT structure, naming
+2. ${CLAUDE_PLUGIN_ROOT}/knowledge/testing-strategies.md    → GWT structure, naming
 3. Project test skill file                        → project-specific test annotations
 4. Class under test                               → the specific file being tested
 ```
@@ -21,11 +21,11 @@
 
 | Skill | What it Covers |
 |-------|---------------|
-| `ai-devagent/skills/testing-guidelines.md` | Given-When-Then, @Nested, parameterized tests |
-| `ai-devagent/skills/testing-junit5.md` | JUnit 5 annotations, lifecycle, @DisplayName |
-| `ai-devagent/skills/testing-assertj.md` | Fluent assertions, soft assertions, exceptions |
-| `ai-devagent/skills/testing-mockito.md` | Stubbing, verification, ArgumentCaptor |
-| `ai-devagent/skills/jpa-persistence.md` | Integration test pattern for repositories |
+| `${CLAUDE_PLUGIN_ROOT}/skills/testing-guidelines/SKILL.md` | Given-When-Then, @Nested, parameterized tests |
+| `${CLAUDE_PLUGIN_ROOT}/skills/testing-junit5/SKILL.md` | JUnit 5 annotations, lifecycle, @DisplayName |
+| `${CLAUDE_PLUGIN_ROOT}/skills/testing-assertj/SKILL.md` | Fluent assertions, soft assertions, exceptions |
+| `${CLAUDE_PLUGIN_ROOT}/skills/testing-mockito/SKILL.md` | Stubbing, verification, ArgumentCaptor |
+| `${CLAUDE_PLUGIN_ROOT}/skills/jpa-persistence/SKILL.md` | Integration test pattern for repositories |
 
 ---
 

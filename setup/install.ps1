@@ -286,7 +286,7 @@ tools:
         body = @'
 # /analyse — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\analyse.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\analyse.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -304,7 +304,7 @@ tools:
         body = @'
 # /plan — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\plan.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\plan.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -326,7 +326,7 @@ tools:
         body = @'
 # /implement — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\implement.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\implement.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -348,7 +348,7 @@ tools:
         body = @'
 # /test — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\test.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\test.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -367,7 +367,7 @@ tools:
         body = @'
 # /review — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\review.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\review.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -383,7 +383,7 @@ tools:
         body = @'
 # /commit — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\commit.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\commit.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@
@@ -411,10 +411,10 @@ tools:
         body = @'
 # /doall — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\doall.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\doall.md` and execute **every step** defined there exactly as written.
 
 Each sub-step (/analyse, /plan, /implement, /test, /commit) must in turn read and follow
-its own devagent prompt file (`__PLUGIN__\prompts\{step}.md`).
+its own devagent prompt file (`__PLUGIN__\commands\{step}.md`).
 
 Do not summarise or skip steps. Respect all stop conditions defined in the doall prompt.
 '@
@@ -435,7 +435,7 @@ tools:
         body = @'
 # /propagate — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\propagate.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\propagate.md` and execute **every step** defined there exactly as written.
 
 Also read `__PLUGIN__\agents\task-propagator.agent.md` as directed by that prompt.
 
@@ -474,7 +474,7 @@ tools:
         body = @'
 # /translate — Delegate to AI DevAgent
 
-Read the file `__PLUGIN__\prompts\translate.md` and execute **every step** defined there exactly as written.
+Read the file `__PLUGIN__\commands\translate.md` and execute **every step** defined there exactly as written.
 
 Do not summarise or skip steps. Follow the full workflow from context loading through memory update.
 '@

@@ -4,11 +4,11 @@
 
 Before processing any request:
 
-1. Read `ai-devagent/00-entrypoint.md` — operating model, retrieval hierarchy
+1. Read `${CLAUDE_PLUGIN_ROOT}/00-entrypoint.md` — operating model, retrieval hierarchy
 2. Read `.github/ai-memory/00-index.md` — project memory index
 3. Read `.github/ai-memory/project/p07-active-context.md` — current work state
 4. Read `.github/ai-memory/project/p02-project-registry.md` — project registry (who owns what)
-5. Read `ai-devagent/memory/classification-rules.md` — responsibility model (what belongs to AI DevAgent vs project memory)
+5. Read `${CLAUDE_PLUGIN_ROOT}/memory/classification-rules.md` — responsibility model (what belongs to AI DevAgent vs project memory)
 
 Memory context is required before propagation — it defines who owns what.
 

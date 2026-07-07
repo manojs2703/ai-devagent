@@ -1,3 +1,8 @@
+---
+name: maven-build
+description: Load when running builds, adding dependencies, or working with Maven configuration.
+---
+
 # Skill: Maven Multi-Module Build
 ## When to Apply This Skill
 Load this skill when running builds, adding dependencies, or working with Maven configuration.

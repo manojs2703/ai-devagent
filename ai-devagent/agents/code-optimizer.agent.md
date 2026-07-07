@@ -4,12 +4,12 @@
 
 Before processing any request:
 
-1. Read `ai-devagent/00-entrypoint.md` — session startup sequence, memory hierarchy
+1. Read `${CLAUDE_PLUGIN_ROOT}/00-entrypoint.md` — session startup sequence, memory hierarchy
 2. Read `.github/ai-memory/00-index.md` — project memory index
 3. Read `.github/ai-memory/project/p07-active-context.md` — current state
-4. Load `ai-devagent/knowledge/java-engineering.md` — Java 21 rules and anti-patterns
-5. Load `ai-devagent/knowledge/architecture-patterns.md` — design patterns (AP-01 to AP-10)
-6. Load `ai-devagent/skills/java-coding.md` — project-specific coding conventions
+4. Load `${CLAUDE_PLUGIN_ROOT}/knowledge/java-engineering.md` — Java 21 rules and anti-patterns
+5. Load `${CLAUDE_PLUGIN_ROOT}/knowledge/architecture-patterns.md` — design patterns (AP-01 to AP-10)
+6. Load `${CLAUDE_PLUGIN_ROOT}/skills/java-coding/SKILL.md` — project-specific coding conventions
 
 Memory context overrides generic recommendations. Project conventions always win.
 

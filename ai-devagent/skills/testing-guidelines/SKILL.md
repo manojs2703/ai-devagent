@@ -1,11 +1,16 @@
+---
+name: testing-guidelines
+description: Load for any testing task — overview and routing to specific testing skills.
+---
+
 # Skill: Testing Guidelines Overview
 ## When to Apply This Skill
 Load this skill for any testing task. For deeper details, load the specific skills:
 | Need | Skill File |
 |------|-----------|
-| JUnit 5 test structure, lifecycle, extensions | `ai-devagent/skills/testing-junit5.md` |
-| AssertJ fluent assertions | `ai-devagent/skills/testing-assertj.md` |
-| Mockito mocking and verification | `ai-devagent/skills/testing-mockito.md` |
+| JUnit 5 test structure, lifecycle, extensions | `${CLAUDE_PLUGIN_ROOT}/skills/testing-junit5/SKILL.md` |
+| AssertJ fluent assertions | `${CLAUDE_PLUGIN_ROOT}/skills/testing-assertj/SKILL.md` |
+| Mockito mocking and verification | `${CLAUDE_PLUGIN_ROOT}/skills/testing-mockito/SKILL.md` |
 **Project override**: Check project memory for project-specific test annotations (`@UnitTest`, `@IntegrationTest`, etc.).
 ---
 ## Core Principle: Given-When-Then

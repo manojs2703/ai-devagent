@@ -79,7 +79,7 @@
 - **If it existed but this story contradicts it** (e.g. acceptance criteria showed up in a
   different field, or a new Confluence space appeared): update the file — it must reflect current
   reality, not a stale first impression.
-- **Never write this file into the plugin** (`ai-devagent/`). It is project memory and always
+- **Never write this file into the plugin** (`${CLAUDE_PLUGIN_ROOT}`). It is project memory and always
   belongs under `{project}/.github/ai-memory/project/` — the plugin stays generic and portable.
 
 **`p06-atlassian-structure.md` template**:

@@ -1,3 +1,8 @@
+---
+name: java-coding
+description: Load for any Java code — writing, refactoring, or reviewing. Java 21 coding guidelines.
+---
+
 # Skill: Java 21 Coding Guidelines
 ## When to Apply This Skill
 Load this skill for **any Java code** -- writing, refactoring, or reviewing.
